@@ -6,10 +6,12 @@ const app = express()
 const db = mysql.createConnection({
       host:"localhost",
       user:"root",
-      password:"*****",
+      password:"*******",
       database: "tabela_de_filamentos"
 }
 )
+
+app.use(express.json())
 
 app.get("/", (req, res)=>{
       res.json("Isso é o backend!!!!!")
@@ -20,6 +22,20 @@ app.get("/filamentos", (req, res)=>{
       db.query(q,(err, data)=>{
             if(err) return res.json(err)
                   return res.json(data)
+      })
+})
+
+app.post("/filamentos",(req, res)=>{
+      const q = "INSERT INTO filamentos (`titulo_filamento`, `descricao`, `cor`) VALUES (?)"
+      const values = [
+            req.body.titulo_filamento,
+            req.body.descricao,
+            req.body.cor,
+      ]
+
+      db.query(q,[values], (err,data)=>{
+            if(err) return res.json(err)
+                  return res.json("Filamento adicionado com sucesso")
       })
 })
       
