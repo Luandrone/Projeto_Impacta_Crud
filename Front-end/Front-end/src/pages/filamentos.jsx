@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+
 const Filamentos = () => {
 
       const [filamentos, setFilamentos] = useState([])
@@ -26,13 +28,14 @@ const Filamentos = () => {
             <div className='filamentos'>
                   {filamentos.map(filamento=>(
                         <div className="filamento" key={filamento.id}>
-                              {filamento.cover && <img src={filamento.cover} alt=''/>}
+                              {filamento.cor && <img src={filamento.cor} alt=''/>}
                               <h2>{filamento.titulo_filamento}</h2>
                               <p>{filamento.descricao}</p>
-                              <span>{filamento.price}</span>
+                              <span>{filamento.preco}</span>
                         </div>
                   ))}
             </div>
+            <button><Link to="/adicionar">Adicionar novo filamento</Link></button>
       </div>
             
       )

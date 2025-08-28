@@ -28,10 +28,11 @@ app.get("/filamentos", (req, res)=>{
 })
 
 app.post("/filamentos",(req, res)=>{
-      const q = "INSERT INTO filamentos (`titulo_filamento`, `descricao`, `cor`) VALUES (?)"
+      const q = "INSERT INTO filamentos (`titulo_filamento`, `descricao`,`preco`, `cor`) VALUES (?)"
       const values = [
             req.body.titulo_filamento,
             req.body.descricao,
+            req.body.preco,
             req.body.cor,
       ]
 
