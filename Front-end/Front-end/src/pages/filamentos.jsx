@@ -22,6 +22,16 @@ const Filamentos = () => {
             fecthAllFilamentos()
       }, [])
 
+      const handleDelete = async (id) => {
+            try{
+                  await axios.delete(`http://localhost:8800/filamentos/${id}`);
+
+                  window.location.reload()
+            } catch(err){
+                  console.log(err)
+            }
+      }
+
 
       return (<div>
             <h1>Loja de Filamentos</h1>
@@ -32,7 +42,7 @@ const Filamentos = () => {
                               <h2>{filamento.titulo_filamento}</h2>
                               <p>{filamento.descricao}</p>
                               <span>{filamento.preco}</span>
-                              <button className="deletar">Deletar</button>
+                              <button className="deletar" onClick={() => handleDelete(filamento.idfilamentos)}>Deletar</button>
                               <button className="atualizar">Atualizar</button>
                         </div>
                   ))}

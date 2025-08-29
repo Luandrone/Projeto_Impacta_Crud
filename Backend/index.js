@@ -41,7 +41,16 @@ app.post("/filamentos",(req, res)=>{
                   return res.json("Filamento adicionado com sucesso")
       })
 })
-      
+
+app.delete("/filamentos/:id", (req, res)=>{
+      const filamentoId = req.params.id
+      const q = "DELETE FROM filamentos WHERE idfilamentos = ?"
+
+      db.query(q,[filamentoId], (err,data)=>{
+            if(err) return res.json(err)
+                  return res.json("Filamento deletado com sucesso.")
+      })
+})
 
 app.listen(8800, ()=>{
       console.log("Conectado ao backend!!!!")
