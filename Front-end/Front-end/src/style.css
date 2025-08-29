@@ -1,0 +1,33 @@
+.App{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 100px;
+      height: 100vh;
+}
+
+.filamentos{
+      display: flex;
+}
+
+.filamentos{
+      flex: 1;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+}
+
+img{
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+      background-color: rgb(206, 247, 241);
+}
+
+.deletar, .atualizar{
+      border: none;
+      padding: 3px 6px;
+      background-color: white;
+      cursor: pointer;
+}

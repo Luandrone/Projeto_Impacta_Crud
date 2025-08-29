@@ -4,7 +4,8 @@ import {
   Route
 } from "react-router-dom";
 
-import './App.css'
+import './style.css';
+
 import Filamentos from "./pages/filamentos";
 import Adicionar from "./pages/adicionar";
 import Atualizar from "./pages/atualizar";
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="App">
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<Filamentos/>}/>

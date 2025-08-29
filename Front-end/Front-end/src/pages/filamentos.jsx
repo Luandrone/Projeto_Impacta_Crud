@@ -32,6 +32,8 @@ const Filamentos = () => {
                               <h2>{filamento.titulo_filamento}</h2>
                               <p>{filamento.descricao}</p>
                               <span>{filamento.preco}</span>
+                              <button className="deletar">Deletar</button>
+                              <button className="atualizar">Atualizar</button>
                         </div>
                   ))}
             </div>
