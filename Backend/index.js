@@ -37,8 +37,25 @@ app.post("/filamentos",(req, res)=>{
       ]
 
       db.query(q,[values], (err,data)=>{
+            if(err) return res.status(500).json(err)
+            return res.status(201).json("Filamento adicionado com sucesso")
+  })
+})
+
+app.put("/filamentos/:id", (req, res)=>{
+      const filamentoId = req.params.id
+      const q = "UPDATE filamentos SET `titulo_filamento` = ?, `descricao` = ?,`preco` = ?, `cor` = ? WHERE idfilamentos = ?"
+
+      const values = [
+            req.body.titulo_filamento,
+            req.body.descricao,
+            req.body.preco,
+            req.body.cor,
+      ]
+
+      db.query(q,[...values,filamentoId], (err,data)=>{
             if(err) return res.json(err)
-                  return res.json("Filamento adicionado com sucesso")
+                  return res.json("Filamento alterado com sucesso.")
       })
 })
 

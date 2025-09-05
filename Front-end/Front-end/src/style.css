@@ -31,3 +31,25 @@ img{
       background-color: white;
       cursor: pointer;
 }
+
+.form{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+}
+
+input{
+      width: 250px;
+      padding: 12px;
+      border: 1px solid black;
+}
+
+.form-button{
+      border: none;
+      padding: 10px;
+      background-color: lightcoral;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      width: 275px;
+}

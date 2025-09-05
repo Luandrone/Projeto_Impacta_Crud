@@ -43,7 +43,7 @@ const Filamentos = () => {
                               <p>{filamento.descricao}</p>
                               <span>{filamento.preco}</span>
                               <button className="deletar" onClick={() => handleDelete(filamento.idfilamentos)}>Deletar</button>
-                              <button className="atualizar">Atualizar</button>
+                              <button className="atualizar"><Link to={`/atualizar/${filamento.id}`}>Atualizar</Link></button>
                         </div>
                   ))}
             </div>

@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Filamentos/>}/>
           <Route path="/adicionar" element={<Adicionar/>}/>
-          <Route path="/atualizar" element={<Atualizar/>}/>
+          <Route path="/atualizar/:id" element={<Atualizar/>}/>
         </Routes>
           
         </BrowserRouter>
