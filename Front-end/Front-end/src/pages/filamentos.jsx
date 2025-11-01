@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const Filamentos = () => {
 
       const [filamentos, setFilamentos] = useState([])
+      const [originalFilamentos, setOriginalFilamentos] = useState([])
 
       useEffect(()=>{
             const fecthAllFilamentos = async () =>{
@@ -14,6 +15,7 @@ const Filamentos = () => {
                         const res = await axios.get("http://localhost:8800/filamentos")
                         console.log(res.data);
                         setFilamentos(res.data)
+                        setOriginalFilamentos(res.data)
                   } catch(err){
                     console.log(err)   
                   }
@@ -32,9 +34,30 @@ const Filamentos = () => {
             }
       }
 
+      const ordenarCrescente = () => {
+            const ordenado = [...filamentos].sort((a, b) => a.preco - b.preco);
+            setFilamentos(ordenado)
+      }
+
+      const ordenarDecrescente = () => {
+            const ordenado = [...filamentos].sort((a, b) => b.preco - a.preco);
+            setFilamentos(ordenado)
+      }
+
+      const restaurarOrdem = () => {
+            setFilamentos(originalFilamentos)
+      }
+
 
       return (<div>
             <h1>Loja de Filamentos</h1>
+
+            <div>
+                  <button onClick={ordenarCrescente}>Ordenar por menor </button>
+                  <button onClick={ordenarDecrescente}>Ordenar por maior </button>
+                  <button onClick={restaurarOrdem}>Mostrar todos</button>
+            </div>
+
             <div className='filamentos'>
                   {filamentos.map(filamento=>(
                         <div className="filamento" key={filamento.id}>
