@@ -52,7 +52,7 @@ const Filamentos = () => {
       return (<div>
             <h1>Loja de Filamentos</h1>
 
-            <div>
+            <div className="botoes-ordenacao">
                   <button onClick={ordenarCrescente}>Ordenar por menor </button>
                   <button onClick={ordenarDecrescente}>Ordenar por maior </button>
                   <button onClick={restaurarOrdem}>Mostrar todos</button>

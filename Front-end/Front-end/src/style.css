@@ -25,6 +25,8 @@ h1 {
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .botoes-ordenacao button {
